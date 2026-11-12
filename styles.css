@@ -1,0 +1,94 @@
+/* Relavia website — plain CSS, system font stack, no external assets. */
+:root {
+  --ink: #173a4d;
+  --ink-soft: #3d5a6b;
+  --accent: #e8a33d;
+  --paper: #faf8f4;
+  --card: #ffffff;
+  --line: #e3ddd2;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+    "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
+  line-height: 1.65;
+}
+a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: #0d2735; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  padding: 0.6rem 1.2rem;
+  background: rgba(250, 248, 244, 0.94);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+.brand-name { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.04em; }
+.site-nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-inline-start: auto; }
+.site-nav a { text-decoration: none; color: var(--ink-soft); font-size: 0.95rem; }
+.site-nav a:hover { color: var(--ink); }
+.lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.lang-switch button {
+  border: 0; background: transparent; color: var(--ink-soft);
+  padding: 0.3rem 0.7rem; font: inherit; font-size: 0.85rem; cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
+main { max-width: 960px; margin: 0 auto; padding: 0 1.2rem 3rem; }
+.hero { text-align: center; padding: 4rem 0 2.5rem; }
+.hero-mark { width: 216px; height: auto; }
+.wordmark { font-size: 3.2rem; letter-spacing: 0.06em; margin: 0.4rem 0 0; }
+.kicker { color: var(--accent); font-weight: 700; letter-spacing: 0.22em; margin: 0.6rem 0 0; }
+.slogan { font-size: 1.7rem; font-weight: 600; margin: 1.2rem auto 0.2rem; max-width: 34rem; }
+.slogan-note { color: var(--ink-soft); font-size: 0.85rem; margin: 0; }
+.lede { font-size: 1.1rem; max-width: 40rem; margin: 1.4rem auto 0; }
+.hero-ctas { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-top: 1.6rem; }
+.btn {
+  display: inline-block; padding: 0.65rem 1.3rem; border-radius: 999px;
+  text-decoration: none; font-weight: 600;
+}
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { color: #fff; background: #0d2735; }
+.btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+.status-pill {
+  display: inline-block; margin-top: 1.4rem; padding: 0.25rem 0.9rem;
+  border: 1px dashed var(--accent); border-radius: 999px;
+  color: var(--ink-soft); font-size: 0.9rem;
+}
+
+.section { padding: 2.2rem 0 0.6rem; }
+.section h2 { font-size: 1.6rem; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 0.2rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.2rem; }
+.card h3 { margin: 0.2rem 0 0.4rem; }
+.card p { margin: 0; color: var(--ink-soft); }
+.protocol-list {
+  display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; padding: 0;
+}
+.protocol-list li {
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 0.35rem 1rem; font-weight: 600;
+}
+.foot-note, .notice p { color: var(--ink-soft); }
+.notice { background: #fdf3e0; border: 1px solid var(--accent); border-radius: 12px; padding: 1rem 1.2rem; }
+.notice h3 { margin-top: 0.2rem; }
+.link-list { padding-inline-start: 1.2rem; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  max-width: 960px; margin: 0 auto; padding: 1.6rem 1.2rem 2.6rem;
+  color: var(--ink-soft); font-size: 0.9rem;
+}
+.site-footer p { margin: 0.25rem 0; }
+
+@media (max-width: 640px) {
+  .wordmark { font-size: 2.4rem; }
+  .slogan { font-size: 1.35rem; }
+  .site-nav { margin-inline-start: 0; }
+}

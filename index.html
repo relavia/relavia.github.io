@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="Relavia: an open-source, non-profit, all-protocol proxy client. No accounts, no logs, no central server.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#status" data-i18n="nav.status">项目状态</a>
+    <a href="#principles" data-i18n="nav.principles">设计原则</a>
+    <a href="#protocols" data-i18n="nav.protocols">协议支持</a>
+    <a href="#sources" data-i18n="nav.sources">来源政策</a>
+    <a href="#join" data-i18n="nav.join">参与与联系</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-mark" src="assets/mark.svg" alt="" width="216" height="132">
+    <h1 class="wordmark">Relavia</h1>
+    <p class="kicker" data-i18n="hero.kicker">开源 · 非盈利 · 全协议</p>
+    <p class="slogan" data-i18n="hero.slogan">希望所有人都可以看见不一样的世界</p>
+    <p class="slogan-note" data-i18n="hero.sloganNote">项目口号（创始人口号原文）</p>
+    <p class="lede" data-i18n="hero.lede">Relavia 是一个开源、非盈利的全协议代理客户端：一个应用，接入你自己的节点。</p>
+    <p class="hero-ctas">
+      <a class="btn btn-primary" href="https://github.com/relavia/relavia" data-i18n="hero.ctaRepo">查看 GitHub 仓库</a>
+      <a class="btn btn-ghost" href="https://github.com/relavia/relavia/releases" data-i18n="hero.ctaReleases">Releases 页（尚无正式版本）</a>
+    </p>
+    <p class="status-pill" data-i18n="hero.statusLine">开发中 · v1.0 尚未发布</p>
+  </section>
+
+  <section id="status" class="section">
+    <h2 data-i18n="status.title">项目状态</h2>
+    <p data-i18n="status.body">Relavia 目前处于积极开发阶段，v1.0 尚未发布。本站不提供任何安装包下载：源码在 GitHub 仓库中公开，未来的正式版本将只通过仓库的 Releases 页发布。任何声称提供 Relavia 安装包的其他网站均非官方渠道。</p>
+  </section>
+
+  <section id="principles" class="section">
+    <h2 data-i18n="principles.title">设计原则</h2>
+    <div class="cards">
+      <article class="card">
+        <h3 data-i18n="p1.title">无账号</h3>
+        <p data-i18n="p1.body">不需要注册，不绑定任何身份。下载、安装、使用，全程没有账户体系。</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="p2.title">无日志、无遥测</h3>
+        <p data-i18n="p2.body">客户端不收集、不上报任何使用数据。没有统计 SDK，没有崩溃上报通道。你可以用代码验证这一点。</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="p3.title">无中心服务器</h3>
+        <p data-i18n="p3.body">项目不运营任何中转或控制服务器。你的流量只在你的设备与你自己的节点之间流动。</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="p4.title">自备节点</h3>
+        <p data-i18n="p4.body">Relavia 是客户端，不是服务商：不卖节点、不运营节点。你配置自己的服务器，或使用经授权的公开来源。</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="p5.title">GPL 开源</h3>
+        <p data-i18n="p5.body">代码以 GPL-3.0-or-later 发布，任何人都可以审计、修改与再分发。这是信任的基础，不是营销话术。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="protocols" class="section">
+    <h2 data-i18n="protocols.title">协议支持</h2>
+    <p data-i18n="protocols.note">以下为第一梯队目标协议，正在开发与逐项验证中；某个协议在某个版本中是否可用，以该版本的发布说明为准。</p>
+    <ul class="protocol-list">
+      <li>Shadowsocks</li>
+      <li>Trojan</li>
+      <li>VMess</li>
+      <li>VLESS + Reality</li>
+      <li>Hysteria2</li>
+      <li>TUIC</li>
+      <li>WireGuard</li>
+      <li>OpenVPN</li>
+      <li>SOCKS5 / HTTP</li>
+    </ul>
+    <p class="foot-note" data-i18n="protocols.foot">OpenVPN 按许可证审计结论以独立进程形式集成；第二梯队协议（SoftEther / L2TP / SSTP）走编排集成，不进入内核。</p>
+  </section>
+
+  <section id="sources" class="section">
+    <h2 data-i18n="sources.title">来源政策</h2>
+    <p data-i18n="sources.body">Relavia 只接入获得授权的节点来源，绝不抓取来路不明的免费节点列表——那些节点大多是被泄露或被入侵的他人设备。来源以插件形式接入，每个来源都要声明其授权依据与数据政策。</p>
+    <article class="notice">
+      <h3 data-i18n="sources.vpngateTitle">一期唯一公共源：VPN Gate</h3>
+      <p data-i18n="sources.vpngateBody">VPN Gate（筑波大学学术项目）是一期唯一的公共节点来源。请注意其官方政策：连接日志保留 3 个月以上，中继侧数据包日志保留 2 周以上，并可能应警方或法院要求披露。因此它在 Relavia 中的定位是「可达性工具」，不是隐私工具；客户端在启用该来源前会强制展示完整的风险告知。</p>
+      <p><a href="https://github.com/relavia/relavia/tree/main/docs" data-i18n="sources.link">主仓库文档（来源插件与风险口径）</a></p>
+    </article>
+  </section>
+
+  <section id="join" class="section">
+    <h2 data-i18n="join.title">参与与联系</h2>
+    <p data-i18n="join.body">开发、讨论与问题反馈都在 GitHub 上进行：</p>
+    <ul class="link-list">
+      <li><a href="https://github.com/relavia/relavia" data-i18n="join.repo">代码仓库</a></li>
+      <li><a href="https://github.com/relavia/relavia/issues" data-i18n="join.issues">问题反馈（Issues）</a></li>
+    </ul>
+    <h3 data-i18n="join.securityTitle">安全报告</h3>
+    <p data-i18n="join.securityBody">发现安全问题请勿公开提交 Issue，请按主仓库 SECURITY.md 的说明，使用 GitHub 的私密漏洞报告渠道提交。</p>
+    <p><a href="https://github.com/relavia/relavia/blob/main/SECURITY.md">SECURITY.md</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
