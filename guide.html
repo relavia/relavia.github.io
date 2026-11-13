@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="Relavia user guide: a zero-setup start with the free VPN Gate pool, importing your own nodes with a subscription link, a self-check list for connection failures, and an optional advanced section (files, single links, protocol preference).">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="download.html" data-i18n="nav.download">下载</a>
+    <a href="verify.html" data-i18n="nav.verify">验签教程</a>
+    <a href="compatibility.html" data-i18n="nav.compat">兼容矩阵</a>
+    <a href="docs.html" data-i18n="nav.docs">使用文档</a>
+    <a href="guide.html" data-i18n="nav.guide">使用教程</a>
+    <a href="privacy.html" data-i18n="nav.privacy">隐私说明</a>
+    <a href="faq.html" data-i18n="nav.faq">常见问题</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="page-head">
+    <h1 data-i18n="guide.title">使用教程</h1>
+    <p class="lede" data-i18n="guide.lede">按你的情况选一篇就行。什么都不懂、只想先连上，看第一篇；手里有订阅地址，看第二篇；连不上，先翻第三篇自查。剩下的都是可选进阶，不看不影响使用。</p>
+  </div>
+
+  <section class="section">
+    <h2 data-i18n="guide.tocTitle">本页目录</h2>
+    <ul class="link-list">
+      <li><a href="#start" data-i18n="guide.toc1">一、免配置上手：用免费池子先连上</a></li>
+      <li><a href="#subscription" data-i18n="guide.toc2">二、用订阅地址导入自己的节点</a></li>
+      <li><a href="#troubleshoot" data-i18n="guide.toc3">三、连不上时先自查</a></li>
+      <li><a href="#advanced" data-i18n="guide.toc4">进阶（可选）：文件、单条链接与偏好设置</a></li>
+    </ul>
+  </section>
+
+  <section class="section" id="start">
+    <h2 data-i18n="guide.toc1">一、免配置上手：用免费池子先连上</h2>
+    <p data-i18n="guide.p1Intro">不需要准备任何东西，也不用懂任何术语。跟着下面四步走完，就能先连上、用起来。</p>
+    <ol class="steps">
+      <li>
+        <h3 data-i18n="guide.p1S1T">第一步：启用免费节点来源</h3>
+        <p data-i18n="guide.p1S1B">打开 app，进入「导入」页，在「节点来源」里找到 VPN Gate，点它进入。</p>
+      </li>
+      <li>
+        <h3 data-i18n="guide.p1S2T">第二步：读完风险提示，点确认</h3>
+        <p data-i18n="guide.p1S2B">屏幕上会先出现一整页说明：这些节点是志愿者用自己的电脑提供的，连接记录会被保留、也可能依法被披露。看懂之后点确认，节点来源才会打开——这一步绕不过去，是故意设的。</p>
+      </li>
+      <li>
+        <h3 data-i18n="guide.p1S3T">第三步：点「刷新」，等节点出现</h3>
+        <p data-i18n="guide.p1S3B">刷新后，节点列表里会出现一批带国旗和国家名的节点。不用自己挑，下一步让 app 替你挑。</p>
+      </li>
+      <li>
+        <h3 data-i18n="guide.p1S4T">第四步：点「自动选择」，再点「连接」</h3>
+        <p data-i18n="guide.p1S4B">app 会把节点逐个测速，挑出最快的一个连上；状态变成「已连接」就是通了。觉得慢时，断开后再点一次「自动选择」，它会重新测一遍。</p>
+      </li>
+    </ol>
+    <article class="notice">
+      <p data-i18n="guide.p1Note">必须说清楚：池子节点运行在志愿者的个人电脑上，连接日志按其政策保留三个月以上并可依法披露，运营者能接触经其转发的未加密流量。它解决的是「能不能连上」，不是「隐不隐秘」：一般浏览可以，账号口令、财务信息等敏感内容不要走它。有自己的节点时，优先用自己的（见第二篇）。详情见 VPN Gate 风险说明页。</p>
+    </article>
+    <p data-i18n="guide.p1PrefNote">设置里还有一个「协议偏好」，一般不用管，保持「自动」即可。</p>
+  </section>
+
+  <section class="section" id="subscription">
+    <h2 data-i18n="guide.toc2">二、用订阅地址导入自己的节点</h2>
+    <p data-i18n="guide.p2Intro">如果你已经在用某个服务商，它给你的订阅地址就是最省事的入口：贴一次，以后节点更新了，回来点一下刷新就行。</p>
+    <ol class="steps">
+      <li>
+        <h3 data-i18n="guide.p2S1T">第一步：复制订阅地址</h3>
+        <p data-i18n="guide.p2S1B">就是服务商给你的那条以 http:// 或 https:// 开头的长链接，一般在服务商后台的「订阅 / 一键导入」处可以复制。整条复制，不要漏字。</p>
+      </li>
+      <li>
+        <h3 data-i18n="guide.p2S2T">第二步：贴进「订阅地址」框，别贴进文本框</h3>
+        <p data-i18n="guide.p2S2B">「导入」页上方有专门的订阅地址输入框。注意它下面那个大文本框是留给单条分享链接的：把订阅地址贴进文本框，app 会把它当作普通链接解析，结果只会是「失败 1 个」。贴错不丢人，换个框重贴就好。</p>
+      </li>
+      <li>
+        <h3 data-i18n="guide.p2S3T">第三步：点「添加并拉取」</h3>
+        <p data-i18n="guide.p2S3B">app 会顺着订阅地址把节点全部拉回来，按分组出现在节点列表里。万一拉取失败，导入页会直接写明原因；更细的记录在「日志」页里。</p>
+      </li>
+      <li>
+        <h3 data-i18n="guide.p2S4T">第四步：选节点连接</h3>
+        <p data-i18n="guide.p2S4B">看中哪个点哪个，再点「连接」；拿不准就点「自动选择」，让 app 按测速替你挑。之后节点有变动，回到导入页对这条订阅点「刷新」，不用重新粘贴。</p>
+      </li>
+    </ol>
+    <p data-i18n="guide.p2Formats">支持的订阅格式：sing-box JSON、Clash / mihomo YAML、V2Ray base64、纯链接列表。主流服务商给的地址基本都能直接用。</p>
+  </section>
+
+  <section class="section" id="troubleshoot">
+    <h2 data-i18n="guide.toc3">三、连不上时先自查</h2>
+    <p data-i18n="guide.trIntro">下面几条覆盖了大多数「连不上」。按你屏幕上看到的现象对号入座；都对不上时，去 app 的「日志」页——每次失败的时间、环节和原因都记在那里，反馈问题时把那几行一并贴出，定位快得多。</p>
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th data-i18n="guide.trHeadSymptom">屏幕上的现象</th>
+          <th data-i18n="guide.trHeadWhy">多半是为什么</th>
+          <th data-i18n="guide.trHeadFix">怎么办</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><p data-i18n="guide.trR1S">导入结果：成功 0 个，失败 1 个</p></td>
+          <td><p data-i18n="guide.trR1W">把订阅地址贴进了文本框，或把分享链接贴进了订阅框——两个框收的东西不一样</p></td>
+          <td><p data-i18n="guide.trR1F">看清框上方的标题，换个框重贴：订阅地址进订阅框，ss://、vless:// 这类链接进文本框</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.trR2S">点连接后转一会儿，报错断开</p></td>
+          <td><p data-i18n="guide.trR2W">这个节点当前连不通：下线、被封或临时故障，池子节点尤其常见</p></td>
+          <td><p data-i18n="guide.trR2F">换一个节点试试，或点「自动选择」让 app 挑测速最快的再连</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.trR3S">池子里的节点一个都连不上</p></td>
+          <td><p data-i18n="guide.trR3W">池子是志愿者的电脑，随时开关机；也可能是你当前网络到这些地址的线路不通</p></td>
+          <td><p data-i18n="guide.trR3F">先点「刷新」拉一份新名单，过几分钟再试；仍不行，改用自己的订阅节点（第二篇）</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.trR4S">订阅拉取失败</p></td>
+          <td><p data-i18n="guide.trR4W">订阅地址失效、套餐到期或流量用尽，也可能只是当时网络不通</p></td>
+          <td><p data-i18n="guide.trR4F">回服务商后台重新复制最新地址再贴一次；仍失败，去「日志」页看这次失败记下的具体原因</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.trR5S">点了连接，先弹出风险说明</p></td>
+          <td><p data-i18n="guide.trR5W">你还没确认过 VPN Gate 的风险提示。池子节点在确认之前一律不让连，这是故意设的门，不是故障</p></td>
+          <td><p data-i18n="guide.trR5F">把说明读完点确认即可；只弹这一次，之后可在来源设置里随时撤销</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="advanced">
+    <h2 data-i18n="guide.toc4">进阶（可选）：文件、单条链接与偏好设置</h2>
+    <p data-i18n="guide.advIntro">这一节写给有自建节点、或愿意自己调参数的人。只用池子和订阅的，这一节完全可以不看。</p>
+
+    <h3 data-i18n="guide.fileTitle">用文件导入</h3>
+    <p data-i18n="guide.fileBody">服务商或自建服务器给的是文件时用这种方式：OpenVPN 的 .ovpn、WireGuard 的 .conf，或整份订阅文件，在「导入」页选「从文件导入」挑中文件即可。下面是两个文件的样例长相（示例内容，密钥均为假值）：</p>
+    <pre><code>[Interface]
+PrivateKey = EXAMPLE_PRIVATE_KEY_NOT_REAL
+Address = 10.66.66.2/32
+DNS = 1.1.1.1
+
+[Peer]
+PublicKey = EXAMPLE_PUBLIC_KEY_NOT_REAL
+Endpoint = 203.0.113.16:51820
+AllowedIPs = 0.0.0.0/0</code></pre>
+    <pre><code>client
+dev tun
+proto udp
+remote 203.0.113.17 1194
+auth SHA256
+cipher AES-256-GCM
+&lt;ca&gt;
+-----BEGIN CERTIFICATE-----
+(example certificate omitted)
+-----END CERTIFICATE-----
+&lt;/ca&gt;</code></pre>
+
+    <h3 data-i18n="guide.linkTitle">贴单条分享链接</h3>
+    <p data-i18n="guide.linkBody">把一条或多条分享链接贴进「导入」页的文本框（从剪贴板导入也能识别）。每种协议的链接长相不同，下面给一份对照样例——全部是示例，地址与密码、密钥都是假的，不能真的拿去连：</p>
+    <pre><code>ss://YWVzLTI1Ni1nY206ZXhhbXBsZS1wYXNzd29yZA==@203.0.113.10:8388#example-ss
+vmess://eyJ2IjoiMiIsInBzIjoiZXhhbXBsZS12bWVzcyIsImFkZCI6IjIwMy4wLjExMy4xMSIsInBvcnQiOiI0NDMiLCJpZCI6IjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwMCIsImFpZCI6IjAiLCJzY3kiOiJhdXRvIiwibmV0IjoidGNwIiwidHlwZSI6Im5vbmUiLCJ0bHMiOiJ0bHMifQ==
+vless://00000000-0000-4000-8000-000000000000@203.0.113.12:443?encryption=none&amp;security=reality&amp;sni=example.com&amp;fp=chrome&amp;pbk=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&amp;sid=0123#example-vless
+trojan://example-password@203.0.113.13:443?sni=example.com#example-trojan
+hysteria2://example-password@203.0.113.14:443?sni=example.com#example-hysteria2
+tuic://00000000-0000-4000-8000-000000000000:example-password@203.0.113.15:443?sni=example.com&amp;congestion_control=bbr#example-tuic</code></pre>
+    <p data-i18n="guide.linkNote">样例里的 IP 全部出自文档专用保留段（203.0.113.0/24），只用于认链接的长相。你真实的链接里，密码与密钥就是通行证本身，别发给不信任的人。</p>
+
+    <h3 data-i18n="guide.prefTitle">协议偏好：只影响「自动选择」怎么挑</h3>
+    <p data-i18n="guide.prefIntro">它在设置页里，只在你点「自动选择」时起作用：测速接近的节点之间，它决定先挑哪一类协议。平时保持「自动」即可，下面是三种取向的对照：</p>
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th data-i18n="guide.prefHeadPref">偏好</th>
+          <th data-i18n="guide.prefHeadWhen">适合什么时候</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><p data-i18n="guide.prefAutoT">自动（推荐）</p></td>
+          <td><p data-i18n="guide.prefAutoB">只看测速，延迟低的优先。绝大多数人、绝大多数情况，用这个。</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.prefSpeedT">速度优先</p></td>
+          <td><p data-i18n="guide.prefSpeedB">测速接近时，优先 WireGuard、Hysteria2、TUIC 这类较新的高速协议。节点很多、想榨性能，或者老协议在你的网络里总被限速时，试它。</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.prefCompatT">兼容优先</p></td>
+          <td><p data-i18n="guide.prefCompatB">测速接近时，优先 Shadowsocks、Trojan、VMess、OpenVPN 这类传统协议。新协议在你的网络环境里经常连不通、握手失败时，用这个更稳。</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p data-i18n="guide.prefFallback">放心：如果当前分组里没有你偏好的那类节点，app 会自动退回按测速选，并在界面上注明，不会因为一个偏好设置就变得无节点可用。</p>
+
+    <h3 data-i18n="guide.advTrTitle">进阶排查</h3>
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th data-i18n="guide.trHeadSymptom">屏幕上的现象</th>
+          <th data-i18n="guide.trHeadWhy">多半是为什么</th>
+          <th data-i18n="guide.trHeadFix">怎么办</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><p data-i18n="guide.atrR1S">导入的 .ovpn 点连接立刻被拒</p></td>
+          <td><p data-i18n="guide.atrR1W">配置里带了这个客户端不支持的指令，或证书、密钥段不完整</p></td>
+          <td><p data-i18n="guide.atrR1F">去「日志」页看被拒的具体原因；对照服务商说明补齐配置。仍然不行，把日志里那几行贴到 GitHub Issues 问</p></td>
+        </tr>
+        <tr>
+          <td><p data-i18n="guide.atrR2S">节点旁标着「弱加密」警告</p></td>
+          <td><p data-i18n="guide.atrR2W">它用的是老式加密算法（例如 Shadowsocks 的 cfb、rc4-md5），安全性不足</p></td>
+          <td><p data-i18n="guide.atrR2F">可以留作存档备用，但别日常使用；自动选择也不会优先选它。能换的话，在服务端换成现代算法</p></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 data-i18n="guide.advLogT">反馈问题时，带上日志</h3>
+    <p data-i18n="guide.advLogB">「日志」页记着每次失败的时间、环节与真实原因，只存在你本机、不会上传。到 GitHub Issues 反馈时，把出问题那几行一并贴出，比只说一句「连不上」定位快得多。</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

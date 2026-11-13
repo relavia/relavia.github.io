@@ -41,6 +41,7 @@ been commissioned yet.
 | `verify.html` | Verification guide: SHA-256 comparison and Ed25519 manifest verification with `releasetool` |
 | `compatibility.html` | Compatibility matrix: per-protocol handshake-verified status for Windows / Android, platform connection modes |
 | `docs.html` | Documentation: quick start (four import ways), routing & DNS, WebRTC honesty notes |
+| `guide.html` | User guide, layered for beginners: zero-setup start with the free pool, subscription import, a failure self-check table, and an optional advanced section |
 | `vpngate-risk.html` | VPN Gate risk notice (same wording basis as the in-client mandatory notice) |
 | `privacy.html` | Privacy statement, including the update check's exact network behaviour |
 | `faq.html` | FAQ |
