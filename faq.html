@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="Relavia FAQ: why there are no built-in nodes, where nodes come from, the Windows unsigned warning, how to verify packages, VPN Gate safety, and where to report problems.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="download.html" data-i18n="nav.download">下载</a>
+    <a href="verify.html" data-i18n="nav.verify">验签教程</a>
+    <a href="compatibility.html" data-i18n="nav.compat">兼容矩阵</a>
+    <a href="docs.html" data-i18n="nav.docs">使用文档</a>
+    <a href="privacy.html" data-i18n="nav.privacy">隐私说明</a>
+    <a href="faq.html" data-i18n="nav.faq">常见问题</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="page-head">
+    <h1 data-i18n="faq.title">常见问题</h1>
+  </div>
+
+  <section class="section">
+    <div class="qa">
+      <h3 data-i18n="faq.q1">为什么没有内置节点？</h3>
+      <p data-i18n="faq.a1">因为 Relavia 是客户端，不是服务商。内置节点就意味着有人在运营服务器、为它付费，并掌握经过的流量——那正是本项目拒绝的模式。节点请自备，或使用经授权的公开来源。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q2">节点从哪里来？</h3>
+      <p data-i18n="faq.a2">三个正道：自己搭一台服务器；用你已有服务商给你的订阅或分享链接导入；或启用内置的 VPN Gate 公共源（务必先读风险说明页）。网上流传的「免费节点大全」大多是被泄露或被入侵的他人设备，本项目不会接入，也建议你不要使用。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q3">Windows 打开安装包时为什么有警告？</h3>
+      <p data-i18n="faq.a3">因为我们的 Windows 程序没有商业代码签名（原因见下载页）。只要你是从 GitHub Releases 下载的、并按验签教程核对过哈希与签名，这个警告可以手动确认放行；从别处下载的包请直接删除。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q4">怎么确认下载的包是真的？</h3>
+      <p data-i18n="faq.a4">按验签教程走：先比对 SHA-256，再用 releasetool 验更新清单的 Ed25519 签名，最后把公钥指纹与下载页公布的逐字核对。三步都不需要你信任我们的话，只需要你信任你自己算出的结果。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q5">VPN Gate 安全吗？</h3>
+      <p data-i18n="faq.a5">它解决的是「能不能连上」，不是「隐不隐秘」。它的连接日志保留三个月以上并可依法披露，节点运行在志愿者的个人电脑上。用它做一般浏览可以，传输账号口令、财务信息等敏感内容不行。详情见风险说明页。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q6">项目怎么维持？会收费吗？</h3>
+      <p data-i18n="faq.a6">非盈利，而且刻意做到近乎零成本：代码托管、网站、安装包分发与自动构建都使用 GitHub 对公开仓库的免费能力，项目不运营服务器、没有服务器开支。没有会员、没有卖节点、不接受「捐赠换服务」，也没有收费计划。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q7">出了问题去哪儿反馈？</h3>
+      <p data-i18n="faq.a7">到 GitHub 仓库的 Issues 区。报问题时请带上版本号、你的系统与复现步骤；安全漏洞不要公开提交，请按仓库 SECURITY.md 的说明走私密报告渠道。公开 Beta 期间将开通带模板的反馈通道，并由维护者分诊、回复与跟进修复——该闭环随 Beta 一并上线，本页先行说明。</p>
+    </div>
+    <div class="qa">
+      <h3 data-i18n="faq.q8">支持哪些系统？</h3>
+      <p data-i18n="faq.a8">首发平台是 Windows 与 Android，两者都在开发与 Beta 准备中；macOS 在后续阶段规划内。各协议与平台模式的实际支持状态以兼容矩阵页为准——那里写的是实测状态，不是愿望清单。</p>
+    </div>
+    <p class="hero-ctas" style="justify-content:flex-start">
+      <a class="btn btn-primary" href="https://github.com/relavia/relavia/issues" data-i18n="join.issues">问题反馈（Issues）</a>
+      <a class="btn btn-ghost" href="https://github.com/relavia/relavia" data-i18n="join.repo">代码仓库</a>
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

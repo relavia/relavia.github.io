@@ -87,6 +87,42 @@ main { max-width: 960px; margin: 0 auto; padding: 0 1.2rem 3rem; }
 }
 .site-footer p { margin: 0.25rem 0; }
 
+/* Subpages (Step 17 expansion) */
+.page-head { padding: 2.6rem 0 0.4rem; }
+.page-head h1 { font-size: 2rem; margin: 0 0 0.6rem; }
+.page-head .lede { margin: 0; max-width: 46rem; }
+code {
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+  font-size: 0.92em; background: #f1ece1; border-radius: 4px; padding: 0.05em 0.3em;
+}
+pre {
+  background: var(--ink); color: #f5efe2; border-radius: 10px;
+  padding: 0.9rem 1.1rem; overflow-x: auto; line-height: 1.5;
+}
+pre code { background: transparent; color: inherit; padding: 0; font-size: 0.88rem; }
+table.matrix { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+table.matrix th, table.matrix td {
+  border: 1px solid var(--line); padding: 0.55rem 0.7rem; text-align: left; vertical-align: top;
+}
+table.matrix th { background: #f4efe4; }
+table.matrix td p { margin: 0 0 0.4rem; color: var(--ink-soft); }
+table.matrix td p:last-child { margin-bottom: 0; }
+.tag {
+  display: inline-block; padding: 0.1rem 0.6rem; border-radius: 999px;
+  font-size: 0.85rem; font-weight: 600; white-space: nowrap;
+}
+.tag-ok { background: #e2f0e4; color: #1e5c2e; border: 1px solid #9cc7a6; }
+.tag-ci { background: #e6eef7; color: #1d4e79; border: 1px solid #a9c6e2; }
+.tag-dev { background: #fdf3e0; color: #8a5a13; border: 1px solid var(--accent); }
+.tag-plan { background: #f0ede6; color: var(--ink-soft); border: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); padding: 1rem 0; }
+.qa h3 { margin: 0 0 0.4rem; }
+.qa p { margin: 0; color: var(--ink-soft); }
+.steps { padding-inline-start: 1.2rem; }
+.steps li { margin-bottom: 0.9rem; }
+.steps h3 { margin: 0 0 0.25rem; font-size: 1.02rem; }
+.steps p { margin: 0; color: var(--ink-soft); }
+
 @media (max-width: 640px) {
   .wordmark { font-size: 2.4rem; }
   .slogan { font-size: 1.35rem; }

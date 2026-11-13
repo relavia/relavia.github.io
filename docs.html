@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="Relavia documentation: quick start (four ways to import nodes), routing and DNS modes, and the honest account of WebRTC and browsers.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="download.html" data-i18n="nav.download">下载</a>
+    <a href="verify.html" data-i18n="nav.verify">验签教程</a>
+    <a href="compatibility.html" data-i18n="nav.compat">兼容矩阵</a>
+    <a href="docs.html" data-i18n="nav.docs">使用文档</a>
+    <a href="privacy.html" data-i18n="nav.privacy">隐私说明</a>
+    <a href="faq.html" data-i18n="nav.faq">常见问题</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="page-head">
+    <h1 data-i18n="docs.title">使用文档</h1>
+  </div>
+
+  <section class="section">
+    <h2 data-i18n="docs.qsTitle">快速上手</h2>
+    <p data-i18n="docs.qsIntro">Relavia 不内置任何节点。先准备好你自己的节点——自建服务器，或你信任的服务商给你的配置——再用下面任一方式导入客户端：</p>
+    <ol class="steps">
+      <li>
+        <h3 data-i18n="docs.qs1T">方式一：粘贴分享链接</h3>
+        <p data-i18n="docs.qs1B">把 ss://、vless://、trojan:// 等分享链接粘贴到客户端的导入框，一次可以贴多条；剪贴板里现成的链接也能被识别导入。</p>
+      </li>
+      <li>
+        <h3 data-i18n="docs.qs2T">方式二：订阅链接</h3>
+        <p data-i18n="docs.qs2B">把订阅 URL 添加为订阅源即可导入，之后可随时刷新更新节点。支持的订阅格式：sing-box JSON、Clash / mihomo YAML、V2Ray base64、纯链接列表。</p>
+      </li>
+      <li>
+        <h3 data-i18n="docs.qs3T">方式三：导入文件</h3>
+        <p data-i18n="docs.qs3B">.ovpn、WireGuard 的 .conf 以及订阅文件，都可以直接作为文件导入。</p>
+      </li>
+      <li>
+        <h3 data-i18n="docs.qs4T">方式四：扫码导入</h3>
+        <p data-i18n="docs.qs4B">尚在开发中，暂不可用；现阶段请用粘贴链接代替。</p>
+      </li>
+    </ol>
+    <article class="notice">
+      <p data-i18n="docs.qsWeak">关于弱加密节点：导入老式 Shadowsocks 节点（cfb、rc4-md5 等）时，客户端会明确给出警告。这类节点可以留作存量存档，但不应日常使用，客户端也不会自动优先选它。</p>
+    </article>
+    <p data-i18n="docs.qsConnect">导入后，选中节点、点击连接即可使用。连不上时，先看该节点的测活结果与错误信息，再对照常见问题页。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="docs.rtTitle">路由与 DNS</h2>
+    <p data-i18n="docs.rtModes">三种路由模式：全局（全部流量走节点）、规则（按规则分流，默认）、直连清单（只有名单内的流量走节点）。规则可按域名、域名后缀或关键字、IP 段、端口、协议组合；你显式写的规则永远优先于内置规则。</p>
+    <p data-i18n="docs.rtDNS">DNS 与路由使用同一套策略推导：走代理的域名交给经隧道的远程解析器，不回落本地运营商的明文 DNS；只有被明确设为直连的域名才用本地解析。fake-ip 默认关闭。</p>
+    <p data-i18n="docs.rtV6">IPv6 有三档：开启、仅隧道、关闭。TUN 模式默认「仅隧道」，系统代理模式默认「开启」；选「关闭」时，IPv6 流量会被硬性拒绝，而不是漏出去。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="docs.wrTitle">WebRTC 与浏览器（如实说明）</h2>
+    <p data-i18n="docs.wrBody">先说实话：客户端不能代管浏览器内部的 WebRTC 行为。任何宣称「客户端已完全堵住 WebRTC 泄露」的说法都是不实的，我们不这样写。</p>
+    <p data-i18n="docs.wrTun">TUN 模式下，WebRTC 的 STUN/UDP 流量与其它流量一样进入隧道、由路由规则裁决；如果节点不支持 UDP 中继，WebRTC 连接会失败，而不是偷偷改走直连。</p>
+    <p data-i18n="docs.wrProxy">系统代理模式下，浏览器只把遵循代理的流量交给客户端，WebRTC 的 UDP 探测可能绕过代理、暴露你真实的出口 IP。要防这一项只能改浏览器设置，客户端无权代劳：Firefox 可在 about:config 中把 media.peerconnection.enabled 设为 false；Chrome / Edge 可用企业策略 WebRtcIPHandlingPolicy（设为 disable_non_proxied_udp）或浏览器商店的 WebRTC 控制类扩展。改完后，建议打开任意一个 WebRTC 泄露检测页，对比连接前后的公网 IP 是否与隧道出口一致，亲眼验证。</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

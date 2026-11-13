@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="How to verify a Relavia download: compare SHA-256 checksums, then verify the Ed25519 signature on the update manifest with releasetool.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="download.html" data-i18n="nav.download">下载</a>
+    <a href="verify.html" data-i18n="nav.verify">验签教程</a>
+    <a href="compatibility.html" data-i18n="nav.compat">兼容矩阵</a>
+    <a href="docs.html" data-i18n="nav.docs">使用文档</a>
+    <a href="privacy.html" data-i18n="nav.privacy">隐私说明</a>
+    <a href="faq.html" data-i18n="nav.faq">常见问题</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="page-head">
+    <h1 data-i18n="vf.title">验签教程：确认你下载的包是真的</h1>
+    <p class="lede" data-i18n="vf.lede">我们的安装包没有商业代码签名，所以验证不靠系统弹窗，靠你自己能复算的两样东西：SHA-256 哈希与 Ed25519 签名。下面两条路任选其一，第二条更完整。</p>
+  </div>
+
+  <section class="section">
+    <h2 data-i18n="vf.aTitle">路线一：比对 SHA-256（不用装任何工具）</h2>
+    <p data-i18n="vf.aBody1">在 Releases 页把安装包和同版本的 SHA256SUMS 下载到同一个文件夹。Windows 在该文件夹打开 PowerShell，执行第一条命令，把输出的哈希与 SHA256SUMS 里对应行逐字比对；Linux / macOS 打开终端，执行后两条命令之一：</p>
+    <pre><code># Windows (PowerShell)
+Get-FileHash .\relavia-windows-amd64.exe -Algorithm SHA256
+
+# Linux
+sha256sum -c SHA256SUMS
+
+# macOS
+shasum -a 256 -c SHA256SUMS</code></pre>
+    <p data-i18n="vf.aBody2">每个文件都报告 OK（或手动比对一致），说明你拿到的字节与发布时完全一致。出现 FAILED 或哈希对不上，请不要安装，并把情况发到 GitHub Issues。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="vf.bTitle">路线二：用 releasetool 验签（推荐）</h2>
+    <p data-i18n="vf.bBody1">需要 git 和 Go 工具链。验证工具 releasetool 就在代码仓库里，从源码构建它，不需要信任任何预编译文件：</p>
+    <pre><code>git clone https://github.com/relavia/relavia.git
+cd relavia/tools/releasetool
+go build -o releasetool .</code></pre>
+    <p data-i18n="vf.bBody2">再下载同版本的更新清单 update-stable.json（Beta 为 update-beta.json）与发行公钥 release-pubkey.txt，和安装包放在同一个文件夹，在该文件夹执行：</p>
+    <pre><code>./releasetool verify --manifest update-stable.json --pubkey release-pubkey.txt --dir .</code></pre>
+    <p data-i18n="vf.bBody3">看到每个产物一行 signature OK, file hash OK、末行 manifest OK，就是通过。工具还会打印发行公钥指纹（SHA256:…）——请与下载页公布的指纹逐字比对；指纹对不上，前面的 OK 也作废，不要安装。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="vf.clientTitle">客户端会自己做同样的事</h2>
+    <p data-i18n="vf.clientBody">通过客户端内更新拿到的版本，会自动执行同一套校验（先比文件大小与 SHA-256，再验清单上的 Ed25519 签名），被篡改或被换成旧版本的包会被拒绝并删除下载文件。手动验签与自动验签，是同一条信任链的两个入口。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="vf.guideTitle">想再深一层？</h2>
+    <p data-i18n="vf.guideBody">主仓库的《复现构建验证指南》（docs/复现构建验证指南.md）还给出第二层验证：从源码按与发布相同的提交重新构建并比对哈希，证明你下载的文件就是这份源码编译出来的。</p>
+    <p><a href="https://github.com/relavia/relavia/tree/main/docs">docs/复现构建验证指南.md</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

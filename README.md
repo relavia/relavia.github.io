@@ -36,13 +36,29 @@ been commissioned yet.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The single page (default text: 简体中文） |
+| `index.html` | Home page (default text: 简体中文） |
+| `download.html` | Download page: the only official channel (GitHub Releases), Beta status, the unsigned-Windows policy, release-key fingerprint slot |
+| `verify.html` | Verification guide: SHA-256 comparison and Ed25519 manifest verification with `releasetool` |
+| `compatibility.html` | Compatibility matrix: per-protocol handshake-verified status for Windows / Android, platform connection modes |
+| `docs.html` | Documentation: quick start (four import ways), routing & DNS, WebRTC honesty notes |
+| `vpngate-risk.html` | VPN Gate risk notice (same wording basis as the in-client mandatory notice) |
+| `privacy.html` | Privacy statement, including the update check's exact network behaviour |
+| `faq.html` | FAQ |
 | `styles.css` | All styling |
 | `i18n.js` | The three language packs (`window.TRANSLATIONS`) |
 | `script.js` | Language switching (no reload, localStorage-persisted) |
+| `check-i18n.mjs` | Alignment check: same key set in all packs, no empty values, every page key covered (`node check-i18n.mjs`) |
 | `assets/mark.svg` | Placeholder eye mark (see above) |
 | `CUSTOM-DOMAIN.md` | Steps to move this site to relavia.org |
 | `.nojekyll` | Serve files as-is on GitHub Pages |
+
+Content rules carried from the main repository (Step 15 §8 / Step 17):
+the Windows build is publicly and permanently **unsigned** (verification
+is by published SHA-256 checksums and the Ed25519-signed update manifest,
+never described as "signed by a CA" or "coming soon"); downloads link
+only to the GitHub repository and its Releases page; the compatibility
+matrix records measured status, and the main repository's docs win any
+disagreement.
 
 ## License
 

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="Relavia compatibility matrix: per-protocol handshake-verified support on Windows and Android, platform connection modes, and honest in-development states.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="download.html" data-i18n="nav.download">下载</a>
+    <a href="verify.html" data-i18n="nav.verify">验签教程</a>
+    <a href="compatibility.html" data-i18n="nav.compat">兼容矩阵</a>
+    <a href="docs.html" data-i18n="nav.docs">使用文档</a>
+    <a href="privacy.html" data-i18n="nav.privacy">隐私说明</a>
+    <a href="faq.html" data-i18n="nav.faq">常见问题</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="page-head">
+    <h1 data-i18n="compat.title">兼容矩阵</h1>
+    <p class="lede" data-i18n="compat.lede">下表来自内核的逐协议真实握手测试与各客户端的实际接线状态，不是规划表。状态随版本变化；若与主仓库文档有出入，以仓库文档为准，并欢迎开 Issue 指出。</p>
+  </div>
+
+  <section class="section">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th data-i18n="compat.thProtocol">协议</th>
+          <th data-i18n="compat.thWin">Windows</th>
+          <th data-i18n="compat.thAndroid">Android</th>
+          <th data-i18n="compat.thNote">说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Shadowsocks</td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><p data-i18n="compat.nCore">内核已通过回环真握手测试（本地另起真实服务端对打，并有错误密钥的负向对照）。</p><p data-i18n="compat.nSS">老式弱加密方法（cfb、rc4-md5 等）可无损导入，但运行侧拒绝使用并给出警告；客户端永不自动优先选择弱加密节点。</p></td>
+        </tr>
+        <tr>
+          <td>Trojan</td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><p data-i18n="compat.nCore">内核已通过回环真握手测试（本地另起真实服务端对打，并有错误密钥的负向对照）。</p></td>
+        </tr>
+        <tr>
+          <td>VMess</td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><p data-i18n="compat.nCore">内核已通过回环真握手测试（本地另起真实服务端对打，并有错误密钥的负向对照）。</p></td>
+        </tr>
+        <tr>
+          <td>VLESS + Reality</td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><p data-i18n="compat.nReality">含 Reality + Vision，已经真实握手验证。</p></td>
+        </tr>
+        <tr>
+          <td>Hysteria2</td>
+          <td><span class="tag tag-ci" data-i18n="compat.stCI">已验证（CI 环境）</span></td>
+          <td><span class="tag tag-ci" data-i18n="compat.stCI">已验证（CI 环境）</span></td>
+          <td><p data-i18n="compat.nQUIC">基于 QUIC。开发沙箱封锁 UDP，握手在 CI 环境完成验证。</p></td>
+        </tr>
+        <tr>
+          <td>TUIC</td>
+          <td><span class="tag tag-ci" data-i18n="compat.stCI">已验证（CI 环境）</span></td>
+          <td><span class="tag tag-ci" data-i18n="compat.stCI">已验证（CI 环境）</span></td>
+          <td><p data-i18n="compat.nQUIC">基于 QUIC。开发沙箱封锁 UDP，握手在 CI 环境完成验证。</p></td>
+        </tr>
+        <tr>
+          <td>WireGuard</td>
+          <td><span class="tag tag-ci" data-i18n="compat.stCI">已验证（CI 环境）</span></td>
+          <td><span class="tag tag-ci" data-i18n="compat.stCI">已验证（CI 环境）</span></td>
+          <td><p data-i18n="compat.nWG">以端点形态接入，握手已在 CI 环境验证。</p></td>
+        </tr>
+        <tr>
+          <td>SOCKS5</td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><p data-i18n="compat.nCore">内核已通过回环真握手测试（本地另起真实服务端对打，并有错误密钥的负向对照）。</p></td>
+        </tr>
+        <tr>
+          <td>HTTP</td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><span class="tag tag-ok" data-i18n="compat.stVerified">已验证</span></td>
+          <td><p data-i18n="compat.nCore">内核已通过回环真握手测试（本地另起真实服务端对打，并有错误密钥的负向对照）。</p></td>
+        </tr>
+        <tr>
+          <td>OpenVPN</td>
+          <td><span class="tag tag-dev" data-i18n="compat.stDev">开发中</span></td>
+          <td><span class="tag tag-dev" data-i18n="compat.stDev">开发中</span></td>
+          <td><p data-i18n="compat.nOVPN">按许可证审计结论以独立进程形态集成，进程适配器开发中。在此之前，OpenVPN 配置与 VPN Gate 节点可以导入、可以测可达性，但尚不能连接。</p></td>
+        </tr>
+        <tr>
+          <td>SoftEther / L2TP / SSTP</td>
+          <td><span class="tag tag-plan" data-i18n="compat.stPlanned">规划中</span></td>
+          <td><span class="tag tag-plan" data-i18n="compat.stPlanned">规划中</span></td>
+          <td><p data-i18n="compat.nTier2">第二梯队：走编排集成（借助系统或外部组件），不进入内核，尚未交付。</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="foot-note" data-i18n="compat.srcNote">本页依据：主仓库 docs/step7-sing-box集成.md（能力矩阵与握手记录）、docs/libbox绑定.md、docs/step14-VPNGate来源插件.md。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="compat.modeTitle">平台连接模式</h2>
+    <div class="cards">
+      <article class="card">
+        <h3 data-i18n="compat.modeWinT">Windows</h3>
+        <p data-i18n="compat.modeWin">当前可用的方式是本地代理（手动）模式：客户端在本机开启监听，需要代理的应用指向该监听地址。系统代理与 TUN 模式所用的路由与 DNS 策略已经就绪，正在接线与真机验证；在完成前，设置页会如实把它们显示为「不可用」。</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="compat.modeAndroidT">Android</h3>
+        <p data-i18n="compat.modeAndroid">经系统 VpnService 建立 TUN。数据面绑定（libbox）的代码与打包流水线已经完成，处于 CI 出包与真机验证阶段；完成前不会宣称真机可用。</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="compat.modeKST">断网保护</h3>
+        <p data-i18n="compat.modeKS">断网保护（kill switch）的策略层与双平台规则已经实现，平台接线随连接模式一同验证；未就绪前，客户端不会假装它已经开启。</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

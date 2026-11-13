@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Relavia — 希望所有人都可以看见不一样的世界</title>
+<meta name="description" content="Relavia privacy: no accounts, no logs, no telemetry, no central server; local data encrypted on your device; what an update check actually sends, stated honestly.">
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Relavia">
+    <img src="assets/mark.svg" alt="" width="54" height="33">
+    <span class="brand-name">Relavia</span>
+  </a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="download.html" data-i18n="nav.download">下载</a>
+    <a href="verify.html" data-i18n="nav.verify">验签教程</a>
+    <a href="compatibility.html" data-i18n="nav.compat">兼容矩阵</a>
+    <a href="docs.html" data-i18n="nav.docs">使用文档</a>
+    <a href="privacy.html" data-i18n="nav.privacy">隐私说明</a>
+    <a href="faq.html" data-i18n="nav.faq">常见问题</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="zh-Hans" aria-pressed="true">简体中文</button>
+    <button type="button" data-lang="zh-Hant" aria-pressed="false">繁體中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">English</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="page-head">
+    <h1 data-i18n="priv.title">隐私说明</h1>
+    <p class="lede" data-i18n="priv.lede">这一页写清 Relavia 会碰什么数据、不会碰什么。每一条都可以拿公开的代码核对。</p>
+  </div>
+
+  <section class="section">
+    <h2 data-i18n="priv.h1">无账号、无日志、无遥测</h2>
+    <p data-i18n="priv.b1">客户端不需要注册，不收集、不上报任何使用数据：没有统计 SDK，没有崩溃上报通道，没有广告标识符。项目也不运营任何服务器来接收这类数据。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="priv.h2">没有中心服务器</h2>
+    <p data-i18n="priv.b2">项目不运营中转或控制服务器。你的流量只在你的设备与你选择的节点之间流动；某个节点会如何记录，取决于该节点的运营者，不经过我们。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="priv.h3">你的数据只存在本机</h2>
+    <p data-i18n="priv.b3">节点、订阅与设置都保存在你本机，并可设置口令加密（口令经 Argon2id 派生密钥，数据以 XChaCha20-Poly1305 加密）；导出备份强制加密，不存在明文备份。我们没有任何云端副本，删掉本机数据即彻底清除。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="priv.h4">更新检查会发出什么请求（如实说明）</h2>
+    <p data-i18n="priv.b4">更新检查只做一件事：从 GitHub Releases 拉取一份静态清单文件。它不上传任何设备信息：请求头只有 User-Agent: Relavia/&lt;版本号&gt;，不带设备、系统、地区或语言标识，也没有 Cookie。定期检查默认关闭；只有你手动点「检查更新」，或主动开启定期检查后（至多每 24 小时一次、在启动时），才会发出请求。清单所在的服务器会看到你的 IP 地址——这是下载任何静态文件的固有事实，我们如实写明，不做虚假承诺。并且无论哪种方式，都只检查、只提示，永不自动下载或安装，下载与安装每一步都要你确认。</p>
+  </section>
+
+  <section class="section">
+    <h2 data-i18n="priv.h5">关于本站</h2>
+    <p data-i18n="priv.b5">本站是纯静态页面：没有统计脚本，没有 Cookie，不加载任何第三方资源。你的浏览器只会从 GitHub Pages 取回这些页面文件。</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footer.license">代码以 GPL-3.0-or-later 发布。</p>
+  <p data-i18n="footer.trademark">Relavia 名称与标记归项目发起人所有，开源许可证不授予商标使用权。</p>
+  <p data-i18n="footer.nonprofit">非盈利项目：不卖节点、不卖会员、不接受「捐赠换服务」。</p>
+  <p data-i18n="footer.mark">本站眼睛图形为方向占位标记，非定稿 Logo。</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
