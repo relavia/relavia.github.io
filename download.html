@@ -46,8 +46,15 @@
   </section>
 
   <section class="section">
-    <h2 data-i18n="dl.statusTitle">当前状态：Beta 准备中</h2>
-    <p data-i18n="dl.statusBody">目前尚未发布任何正式版本（Releases 页为空），我们正在准备第一个公开 Beta。发布后，本页会同步更新版本号、校验文件与发行公钥指纹。想提前体验，可以按仓库说明从源码自行构建。</p>
+    <h2 data-i18n="dl.statusTitle">当前状态：公开 Beta 已发布</h2>
+    <p data-i18n="dl.statusBody">第一个公开 Beta：v0.1.0-beta.1（2026-11-19 发布）。Windows 版与 Android 版（仅 arm64-v8a）可从下方按钮直接下载，文件托管在 GitHub Releases，与上方唯一官方渠道是同一处。发布说明里有这一版的真实状态——包括公共节点池的连接验证口径与限制——请先读再装。</p>
+    <p class="hero-ctas" style="justify-content:flex-start">
+      <a class="btn btn-primary" href="https://github.com/relavia/relavia/releases/download/v0.1.0-beta.1/relavia-windows-amd64.exe" data-i18n="dl.btnWin">下载 Windows 版</a>
+      <a class="btn btn-primary" href="https://github.com/relavia/relavia/releases/download/v0.1.0-beta.1/relavia-android-arm64.apk" data-i18n="dl.btnAndroid">下载 Android 版（arm64）</a>
+      <a class="btn btn-ghost" href="https://github.com/relavia/relavia/releases/download/v0.1.0-beta.1/SHA256SUMS" data-i18n="dl.btnSums">SHA256SUMS 校验文件</a>
+      <a class="btn btn-ghost" href="https://github.com/relavia/relavia/releases/download/v0.1.0-beta.1/update-beta.json" data-i18n="dl.btnManifest">update-beta.json 更新清单</a>
+    </p>
+    <p data-i18n="dl.statusNote">Beta 过渡安排：Android 包为 debug 签名，更新清单以测试钥签署（详见下方「发行公钥指纹」一节）；已知问题清单在仓库 docs/known-issues-beta.md，无已知 P0，但有多项未在真机验证的 P1，请先对照再使用。</p>
   </section>
 
   <section class="section">
@@ -59,12 +66,12 @@
 
   <section class="section">
     <h2 data-i18n="dl.fpTitle">发行公钥指纹</h2>
-    <p data-i18n="dl.fpBody">首个正式版本发布时，发行公钥指纹将公布在这里，供你验签时带外核对。当前尚无正式版本，此处暂不填入任何指纹；凡在别处看到自称是 Relavia 发行指纹的，请以本页为准。</p>
+    <p data-i18n="dl.fpBody">Beta 渠道更新清单的签名公钥指纹：SHA256:vBpVvEd01fIy/a29DenfMm6TdyMTN4eIXvtVVXWROdY=。注意：这是过渡期的 TEST-ONLY 测试钥，只用于 Beta 渠道，证明清单与 Beta 构建同源，不具备正式发行钥的保管等级；v1.0 前会更换为正式发行钥并在此更新指纹。凡在别处看到其他自称是 Relavia 发行指纹的，请以本页为准。</p>
   </section>
 
   <section class="section">
     <h2 data-i18n="dl.androidTitle">Android</h2>
-    <p data-i18n="dl.androidBody">Android 版 APK 将通过同一个 Releases 页发布。APK 以发行密钥签名，签名证书指纹会随每个版本的发布说明公布，供你带外核对；客户端内的更新走与上面相同的签名清单校验。</p>
+    <p data-i18n="dl.androidBody">Android 版 APK 通过同一个 Releases 页发布。Beta 的 APK 为 debug 签名（过渡安排），签名证书指纹公布在每个版本的发布说明中；v1.0 起改用正式发行签名，届时需先卸载 Beta 再安装，应用数据不保留。客户端内的更新走与上面相同的签名清单校验（Beta 渠道为测试钥，见上节）。</p>
   </section>
 </main>
 
